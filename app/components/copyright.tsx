@@ -1,5 +1,4 @@
 'use client'
-
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTypingEffect } from '@/app/hooks/useTypingEffect'
@@ -29,22 +28,21 @@ export default function CopyrightPage() {
     { Icon: Instagram, href: "https://instagram.com/connect", label: "Instagram" },
     { Icon: Twitter, href: "https://twitter.com/connect", label: "Twitter" },
     { Icon: Facebook, href: "https://facebook.com/connect", label: "Facebook" },
-    { Icon: Linkedin, href: "https://linkedin.com/company/connect", label: "LinkedIn" },
-    { Icon: Linkedin, href: "https://linkedin.com/company/connect", label: "LinkedIn" },
+    { Icon: Linkedin, href: "https://linkedin.com/company/connect", label: "LinkedIn" }
   ]
 
   return (
     <div className="min-h-5 bg-gradient-to-br mb-1 my-5 from-purple-700 to-indigo-900 text-white p-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-3 text-center">Copyright Infographic</h1>
-        
+
         <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 mb-8">
           <h2 className="text-3xl font-semibold mb-4">© {currentYear} Connect</h2>
           <p className="text-xl">{typedText}<span className="animate-blink"></span></p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {sections.map((section, index) => (
+          {sections.map((section) => (
             <motion.div
               key={section.title}
               className="bg-white/5 backdrop-blur-sm rounded-lg p-6 cursor-pointer transition-all duration-300 hover:bg-white/20"
@@ -79,7 +77,7 @@ export default function CopyrightPage() {
               agraphicart02@gmail.com
             </a>
           </p>
-          
+
           <div className="flex justify-center space-x-4 mt-6">
             {socialLinks.map(({ Icon, href, label }) => (
               <a
@@ -99,4 +97,3 @@ export default function CopyrightPage() {
     </div>
   )
 }
-
