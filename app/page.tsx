@@ -3,9 +3,7 @@ import { Hero } from './components/Hero';
 import { ParallaxScrollDemo } from './components/images';
 import CopyrightPage from './components/copyright';
  // Corrected import path
- import ImageGenerator from './components/ImageGenerator';
-
-// import Contact from './components/Contact';
+ // import Contact from './components/Contact';
 
 export default function Home() {
   return (
@@ -18,7 +16,7 @@ export default function Home() {
      <CopyrightPage />
     </div>
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-    <ImageGenerator />
+    
     </div>
     </main>
     
