@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useRef, useState, memo } from "react";
 import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
@@ -29,15 +27,6 @@ export const TextRevealCard = ({
       setLocalWidth(localWidth);
     }
   }, []);
-
-  function mouseMoveHandler(event: MouseEvent) {
-    event.preventDefault();
-    const { clientX } = event;
-    if (cardRef.current) {
-      const relativeX = clientX - left;
-      setWidthPercentage((relativeX / localWidth) * 100);
-    }
-  }
 
   function mouseLeaveHandler() {
     setIsMouseOver(false);
