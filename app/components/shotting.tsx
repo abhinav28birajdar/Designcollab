@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { ShootingStars } from "@/components/ui/shooting-stars";
+import { ShootingStars } from "./ui/shooting-stars";
 import { StarsBackground } from "./ui/stars-background";
 export function ShootingStarsAndStarsBackgroundDemo() {
   return (
