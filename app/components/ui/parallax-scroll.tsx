@@ -12,7 +12,7 @@ export const ParallaxScroll = ({
   images: string[];
   className?: string;
 }) => {
-  const containerRef = useRef<any>(null);
+  const containerRef = useRef<HTMLDivElement>(null);  // Change here
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],

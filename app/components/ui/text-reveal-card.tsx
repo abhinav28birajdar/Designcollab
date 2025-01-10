@@ -63,7 +63,6 @@ export const TextRevealCard = ({
     <div
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}
-    //   onMouseOver={mouseMoveHandler}
       onTouchStart={mouseEnterHandler}
       onTouchEnd={mouseLeaveHandler}
       onTouchMove={touchMoveHandler}
@@ -153,39 +152,21 @@ export const TextRevealCardDescription = ({
 
 const Stars = () => {
   const randomMove = () => Math.random() * 4 - 2;
-  const randomOpacity = () => Math.random();
-  const random = () => Math.random();
-
+  const randomOpacity = () => Math.random() * 0.5 + 0.5;
   return (
-    <div className="absolute inset-0">
-      {[...Array(80)].map((_, i) => (
-        <motion.span
-          key={`star-${i}`}
-          animate={{
-            top: `calc(${random() * 100}% + ${randomMove()}px)`,
-            left: `calc(${random() * 100}% + ${randomMove()}px)`,
-            opacity: randomOpacity(),
-            scale: [1, 1.2, 0],
-          }}
-          transition={{
-            duration: random() * 10 + 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          style={{
-            position: "absolute",
-            top: `${random() * 100}%`,
-            left: `${random() * 100}%`,
-            width: `2px`,
-            height: `2px`,
-            backgroundColor: "white",
-            borderRadius: "50%",
-            zIndex: 1,
-          }}
-          className="inline-block"
-        ></motion.span>
-      ))}
-    </div>
+    <motion.div
+      animate={{
+        x: randomMove(),
+        y: randomMove(),
+        opacity: randomOpacity(),
+      }}
+      transition={{
+        duration: Math.random() * 5 + 2,
+        repeat: Infinity,
+        repeatType: "reverse",
+      }}
+      className="absolute w-2 h-2 bg-white rounded-full"
+    />
   );
 };
 
