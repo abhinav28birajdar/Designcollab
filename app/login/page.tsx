@@ -9,12 +9,11 @@ export default function LoginPage() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // Handle login logic here
     console.log("Login attempt with:", { email, password })
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center  bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
@@ -23,9 +22,7 @@ export default function LoginPage() {
           <input type="hidden" name="remember" value="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
-              <label htmlFor="email-address" className="sr-only">
-                Email address
-              </label>
+              <label htmlFor="email-address" className="sr-only">Email address</label>
               <input
                 id="email-address"
                 name="email"
@@ -39,9 +36,7 @@ export default function LoginPage() {
               />
             </div>
             <div>
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
+              <label htmlFor="password" className="sr-only">Password</label>
               <input
                 id="password"
                 name="password"
@@ -68,7 +63,6 @@ export default function LoginPage() {
                 Remember me
               </label>
             </div>
-
             <div className="text-sm">
               <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
                 Forgot your password?
@@ -87,11 +81,10 @@ export default function LoginPage() {
         </form>
         <div className="text-center">
           <Link href="/Signuppage" className="font-medium text-indigo-600 hover:text-indigo-500">
-            Don't have an account? Sign up
+            Don&apos;t have an account? Sign up
           </Link>
         </div>
       </div>
     </div>
   )
 }
-
