@@ -1,7 +1,9 @@
 import React from 'react';
 import { Hero } from './components/Hero';
 import { ParallaxScrollDemo } from './components/images';
-import CopyrightPage from './components/copyright';
+
+import SignUpPage from './auth/Signup';
+
  // Corrected import path
  // import Contact from './components/Contact';
 
@@ -13,7 +15,8 @@ export default function Home() {
       {/* <TabsDemo /> */}
     {/* <Contact /> */}
      <ParallaxScrollDemo />
-     <CopyrightPage />
+
+
     </div>
   
     </main>

@@ -2,7 +2,7 @@
 import React from 'react'
 import { ShootingStars } from "./ui/shooting-stars";
 import { StarsBackground } from "./ui/stars-background";
-import { NavbarWithMegaMenu } from './Navbar';
+import { NavbarWithMegaMenu } from '../Navbar/Navbar';
 import { TypewriterEffectSmoothDemo } from './typreffect';
 
 export const Hero = () => {

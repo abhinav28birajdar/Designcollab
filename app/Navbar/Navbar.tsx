@@ -12,9 +12,10 @@ import {
   NewspaperIcon,
   TagIcon,
 } from '@heroicons/react/24/solid';
-import NavList from './ui/NavList';
+
+import NavList from './NavList';
 import { NavItem } from '../types/navbar';
-import SignupPage from './signup-page'; // Import SignupPage component
+import SignupPage from "../Signuppage/page";
 
 const navListMenuItems: NavItem[] = [
   { title: "Products", description: "Find the perfect solution for your needs.", icon: SquaresPlusIcon },
@@ -29,7 +30,6 @@ const navListMenuItems: NavItem[] = [
 
 export function NavbarWithMegaMenu() {
   const [openNav, setOpenNav] = useState(false);
-  const [showSignup, setShowSignup] = useState(false); // State for signup modal
 
   useEffect(() => {
     const handleResize = () => window.innerWidth >= 960 && setOpenNav(false);
@@ -37,22 +37,14 @@ export function NavbarWithMegaMenu() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const handleSignupClick = () => {
-    setShowSignup(true); 
-  };
-
-  const handleSignupClose = () => {
-    setShowSignup(false); // Close signup modal
-  };
-
   return (
-    <nav className="bg-white  shadow-md">
+    <nav className="bg-white shadow-md">
       <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 justify-between">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0">
               <span className="text-3xl flex items-start font-bold text-[#6810c1]">
-                Agraphicart
+                Designcollab
               </span>
             </Link>
           </div>
@@ -60,17 +52,16 @@ export function NavbarWithMegaMenu() {
             <NavList items={navListMenuItems} />
           </div>
           <div className="hidden lg:flex lg:items-center lg:gap-4">
-            <Link href="/signin">
+            <Link href="/login">
               <button className="rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
                 Log In
               </button>
             </Link>
-            <button
-              className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-              onClick={handleSignupClick}
-            >
-              Sign Up
-            </button>
+            <Link href="/Signuppage">
+              <button className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
+                Sign Up
+              </button>
+            </Link>
           </div>
           <div className="flex items-center lg:hidden">
             <button
@@ -88,34 +79,20 @@ export function NavbarWithMegaMenu() {
       </div>
       {openNav && (
         <div className="lg:hidden">
-          <div className="space-y-1 px-2 pb-3 lg:items-center pt-2">
+          <div className="space-y-1 px-2 pb-3 pt-2">
             <NavList items={navListMenuItems} />
             <div className="mt-4 flex flex-col gap-2">
-              <Link href="/signin">
+              <Link href="/login">
                 <button className="w-full rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
                   Log In
                 </button>
               </Link>
-              <button
-                className="w-full rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-                onClick={handleSignupClick} // Trigger signup modal on click
-              >
-                Sign Up
-              </button>
+              <Link href="/Signuppage">
+                <button className="w-full rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
+                  Sign Up
+                </button>
+              </Link>
             </div>
-          </div>
-        </div>
-      )}
-      {showSignup && ( 
-        <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <button
-              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
-              onClick={handleSignupClose}
-            >
-              <XMarkIcon className="h-6 w-6" />
-            </button>
-            <SignupPage onClose={handleSignupClose} /> 
           </div>
         </div>
       )}

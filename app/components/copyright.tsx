@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useTypingEffect } from '@/app/hooks/useTypingEffect'
 import { Instagram, Twitter, Facebook, Linkedin } from 'lucide-react'
 
 export default function CopyrightPage() {

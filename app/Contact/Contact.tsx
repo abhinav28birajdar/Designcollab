@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 const Contact: React.FC = () => {
   const [name, setName] = useState('');

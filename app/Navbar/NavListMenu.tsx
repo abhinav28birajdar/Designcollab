@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import { NavListMenuProps } from '../../types/navbar';
+import { NavListMenuProps } from '../types/navbar';
 
 const NavListMenu: React.FC<NavListMenuProps> = ({ items }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
