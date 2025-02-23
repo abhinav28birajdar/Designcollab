@@ -25,7 +25,7 @@ const NavList: React.FC<NavListProps> = ({ items }) => {
         </Link>
       </li>
       <li>
-        <Link href="/contact" className="block py-2 px-4 font-medium text-gray-700 hover:text-gray-900">
+        <Link href="/Contact" className="block py-2 px-4 font-medium text-gray-700 hover:text-gray-900">
           Contact Us
         </Link>
       </li>

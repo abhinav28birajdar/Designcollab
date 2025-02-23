@@ -15,7 +15,6 @@ import {
 
 import NavList from './NavList';
 import { NavItem } from '../types/navbar';
-import SignupPage from "../Signuppage/page";
 
 const navListMenuItems: NavItem[] = [
   { title: "Products", description: "Find the perfect solution for your needs.", icon: SquaresPlusIcon },

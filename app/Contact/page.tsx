@@ -1,7 +1,5 @@
 'use client'
 import React, { useState } from 'react';
-import Link from 'next/link';
-
 const Contact: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -57,7 +55,7 @@ const Contact: React.FC = () => {
 
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="name" className="block text-sm font-medium text-gray-100">
             Name
           </label>
           <input
@@ -65,12 +63,12 @@ const Contact: React.FC = () => {
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className=" justify-center mt-1 p-2 w-50 border rounded-md focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
 
         <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="email" className="block text-sm font-medium text-gray-100">
             Email
           </label>
           <input
@@ -83,7 +81,7 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="message" className="block text-sm font-medium text-gray-100">
             Message
           </label>
           <textarea

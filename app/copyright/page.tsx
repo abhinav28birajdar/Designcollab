@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Instagram, Twitter, Facebook, Linkedin } from 'lucide-react'
+import { useTypingEffect } from "@/app/hooks/useTypingEffect" 
 
 export default function CopyrightPage() {
   const currentYear = new Date().getFullYear()
