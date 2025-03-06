@@ -72,8 +72,10 @@ export default function LoginPage() {
         {message && <p className="text-center text-green-500">{message}</p>}
         <button onClick={handleGoogleLogin} className="w-full p-2 bg-gray-700 rounded-lg">Log in with Google</button>
         <form onSubmit={handleLogin} className="space-y-4">
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="w-full p-2 rounded bg-gray-700" />
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="w-full p-2 rounded bg-gray-700" />
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"
+           className="w-full p-2 rounded bg-gray-700" />
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} 
+          placeholder="Password" className="w-full p-2 rounded bg-gray-700" />
           <button type="submit" className="w-full p-2 bg-blue-600 rounded-lg">Sign In</button>
         </form>
         <div>
