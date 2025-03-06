@@ -1,6 +1,6 @@
 import React from 'react';
 import { Hero } from './Hero/Hero';
-import { ParallaxScrollDemo } from './components/images';
+import { ParallaxScrollDemo } from './components/ui/images';
 
 export default function Home() {
   return (

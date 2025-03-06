@@ -15,7 +15,7 @@ const NavList: React.FC<NavListProps> = ({ items }) => {
         <NavListMenu items={items} />
       </li>
       <li>
-        <Link href="/design" className="block py-2 px-4 font-medium text-gray-700 hover:text-gray-900">
+        <Link href="/Design" className="block py-2 px-4 font-medium text-gray-700 hover:text-gray-900">
           Design
         </Link>
       </li>

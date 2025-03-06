@@ -1,5 +1,5 @@
 "use client";
-import { ParallaxScroll } from "./ui/parallax-scroll";
+import { ParallaxScroll } from "./parallax-scroll";
 
 export function ParallaxScrollDemo() {
   return <ParallaxScroll images={images} />;

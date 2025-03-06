@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { ShootingStars } from "./ui/shooting-stars";
-import { StarsBackground } from "./ui/stars-background";
+import { ShootingStars } from "./shooting-stars";
+import { StarsBackground } from "./stars-background";
 export function ShootingStarsAndStarsBackgroundDemo() {
   return (
     <div className="h-[40rem] rounded-md bg-neutral-900 flex flex-col items-center justify-center relative w-full">

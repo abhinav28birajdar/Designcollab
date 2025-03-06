@@ -3,7 +3,7 @@ import React from 'react'
 import { ShootingStars } from "../components/ui/shooting-stars";
 import { StarsBackground } from "../components/ui/stars-background";
 import { NavbarWithMegaMenu } from '../Navbar/Navbar';
-import { TypewriterEffectSmoothDemo } from '../components/typreffect';
+import { TypewriterEffectSmoothDemo } from '../components/ui/typreffect';
 
 export const Hero = () => {
   return (
