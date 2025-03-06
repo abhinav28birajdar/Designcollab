@@ -12,7 +12,7 @@ export default function SignupPage() {
   const [message, setMessage] = useState("");
   const router = useRouter();
 
-  const handleSignup = async (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       setMessage("❌ Passwords do not match.");
@@ -21,7 +21,7 @@ export default function SignupPage() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       setMessage("✅ Account created successfully! Redirecting...");
-      setTimeout(() => router.push("/dashboard"), 2000);
+      setTimeout(() => router.push("/login"), 2000);
     } catch (error) {
       setMessage("❌ Signup failed: " + (error as Error).message);
     }
@@ -33,9 +33,9 @@ export default function SignupPage() {
         <h2 className="text-center text-2xl font-bold">Create an account</h2>
         {message && <p className="text-center text-green-500">{message}</p>}
         <form onSubmit={handleSignup} className="space-y-4">
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="w-full p-2 rounded bg-gray-700" />
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="w-full p-2 rounded bg-gray-700" />
-          <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" className="w-full p-2 rounded bg-gray-700" />
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="w-full p-2 rounded bg-gray-700" required />
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="w-full p-2 rounded bg-gray-700" required />
+          <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" className="w-full p-2 rounded bg-gray-700" required />
           <button type="submit" className="w-full p-2 bg-blue-600 rounded-lg">Sign Up</button>
         </form>
         <p className="text-center">
