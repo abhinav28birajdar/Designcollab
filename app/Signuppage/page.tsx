@@ -20,7 +20,7 @@ export default function SignupPage() {
     }
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      setMessage("✅ Account created successfully! Redirecting...");
+      setMessage("✅ Account created! Redirecting...");
       setTimeout(() => router.push("/login"), 2000);
     } catch (error) {
       setMessage("❌ Signup failed: " + (error as Error).message);
@@ -29,7 +29,7 @@ export default function SignupPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-900 text-white">
-      <div className="w-full max-w-md p-8 space-y-6 bg-gray-800 rounded-xl shadow-lg">
+      <div className="w-full max-w-md p-8 bg-gray-800 rounded-xl shadow-lg">
         <h2 className="text-center text-2xl font-bold">Create an account</h2>
         {message && <p className="text-center text-green-500">{message}</p>}
         <form onSubmit={handleSignup} className="space-y-4">
