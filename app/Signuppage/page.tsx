@@ -5,7 +5,7 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { auth, storage, db } from "@/app/auth/firebase";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");

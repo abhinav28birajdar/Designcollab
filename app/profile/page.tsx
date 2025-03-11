@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 import { auth } from "@/app/auth/firebase";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db, storage } from "@/app/auth/firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useRouter } from "next/navigation";
@@ -124,10 +124,13 @@ export default function UserProfilePage() {
                 className="relative w-24 h-24 rounded-full bg-gray-700 cursor-pointer overflow-hidden flex items-center justify-center border-2 border-blue-500 hover:opacity-80"
               >
                 {imagePreview || userData.photoURL ? (
-                  <img
+                  <Image
                     src={imagePreview || userData.photoURL}
                     alt="Profile"
+                    width={96}
+                    height={96}
                     className="w-full h-full object-cover"
+                    unoptimized // Needed for external image URLs
                   />
                 ) : (
                   <span className="text-gray-400">Add Photo</span>

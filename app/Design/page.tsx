@@ -1,8 +1,9 @@
-'use client'
+"use client";
 import { useState } from "react";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "@/app/auth/firebase";
 import { Plus } from "lucide-react";
+import Image from "next/image";
 
 export default function Gallery() {
   const [images, setImages] = useState<string[]>([]);
@@ -10,7 +11,7 @@ export default function Gallery() {
   const handleUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files) {
-      for (let file of Array.from(files)) {
+      for (const file of Array.from(files)) {
         const storageRef = ref(storage, `uploads/${file.name}`);
         await uploadBytes(storageRef, file);
         const url = await getDownloadURL(storageRef);
@@ -20,13 +21,12 @@ export default function Gallery() {
   };
 
   return (
-    <div className="min-h-screen bg-black-100 p-8 relative ">
-
-      <div className="w-full text-amber-700 font-[1000]  bg-white p-6 rounded-lg shadow-lg">
-     GALLLERY 
+    <div className="min-h-screen bg-black-100 p-8 relative">
+      <div className="w-full text-amber-700 font-extrabold bg-white p-6 rounded-lg shadow-lg">
+        GALLERY
         <div className="grid grid-cols-3 gap-4">
           {images.map((src, index) => (
-            <img key={index} src={src} alt="Uploaded" className="w-full h-auto object-contain rounded-lg" />
+            <Image key={index} src={src} alt="Uploaded" width={200} height={200} className="w-full h-auto object-contain rounded-lg" />
           ))}
         </div>
       </div>
