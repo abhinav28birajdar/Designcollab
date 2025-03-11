@@ -7,12 +7,7 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import { db } from "@/app/auth/firebase";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
 
-interface LoginPageProps {
-  isPopup?: boolean;
-  onClose?: () => void;
-}
-
-export default function LoginPage({ isPopup, onClose }: LoginPageProps) {
+export default function LoginPage({ isPopup = false, onClose }: { isPopup?: boolean; onClose?: () => void }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
