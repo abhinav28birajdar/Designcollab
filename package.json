@@ -21,6 +21,7 @@
     "firebase": "^11.4.0",
     "framer-motion": "^11.16.4",
     "lucide-react": "^0.469.0",
+    "mongodb": "^6.14.2",
     "next": "^15.1.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

@@ -65,7 +65,7 @@ export default function SignupPage() {
       });
 
       setMessage("✅ Account created! Redirecting...");
-      setTimeout(() => router.push("/login"), 2000);
+      setTimeout(() => router.push("/"), 1500);
     } catch (error) {
       setMessage("❌ Signup failed: " + (error as Error).message);
     }
