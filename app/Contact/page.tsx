@@ -1,107 +1,113 @@
-'use client'
-import React, { useState } from 'react';
-const Contact: React.FC = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Checkbox } from "@/components/ui/checkbox"
+import ContactInfo from "@/app/Contact/contact-info"
+import SocialIcons from "@/app/socialmedia/social-icons"
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    try {
-      // Replace with your actual API endpoint
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, message }),
-      });
-
-      if (response.ok) {
-        setSuccessMessage('Your message has been sent successfully!');
-        setErrorMessage('');
-        setName('');
-        setEmail('');
-        setMessage('');
-      } else {
-        setErrorMessage('An error occurred while sending your message.');
-        setSuccessMessage('');
-      }
-    } catch (error) {
-      console.error('Error sending message:', error);
-      setErrorMessage('An error occurred while sending your message.');
-      setSuccessMessage('');
-    }
-  };
-
+export default function ContactPage() {
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
+    <div className="container mx-auto py-10 px-7 bg-[#6810c1] rounded-md">
+      <div className="grid md:grid-cols-2 gap-8 items-start  ">
+        <div className="space-y-8">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">Contact Us</h1>
+            <p className="text-muted-foreground">
+              We'd love to hear from you. Fill out the form or use our contact information.
+            </p>
+          </div>
 
-      {successMessage && (
-        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-          {successMessage}
-        </div>
-      )}
+          <ContactInfo />
 
-      {errorMessage && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-          {errorMessage}
-        </div>
-      )}
+          <div className="pt-4">
+            <Link href="/feedback" className="inline-flex items-center">
+              <Button variant="outline" className="gap-2">
+                Share Your Feedback
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-arrow-right"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </Button>
+            </Link>
+          </div>
 
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-100">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className=" justify-center mt-1 p-2 w-50 border rounded-md focus:ring-blue-500 focus:border-blue-500"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-100">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md focus:ring-blue-500 focus:border-blue-500"
-          />
+          <SocialIcons />
         </div>
 
-        <div className="mb-4">
-          <label htmlFor="message" className="block text-sm font-medium text-gray-100">
-            Message
-          </label>
-          <textarea
-            id="message"
-            rows={4}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md focus:ring-blue-500 focus:border-blue-500"
-          />
-        </div>
+        <div className="bg-primary/10 p-6 rounded-lg">
+          <h2 className="text-2xl font-bold mb-6">Got ideas? We've got the skills. Let's team up.</h2>
+          <p className="mb-6">Tell us more about yourself and what you're got in mind.</p>
 
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Send Message
-        </button>
-      </form>
+          <form className="space-y-4 roun">
+            <div>
+              <Input placeholder="Your name" className="bg-white/80" />
+            </div>
+            <div>
+              <Input type="email" placeholder="you@company.com" className="bg-white/80" />
+            </div>
+            <div>
+              <Textarea placeholder="Tell us a little about the project..." className="bg-white/80 min-h-[100px]" />
+            </div>
+
+            <div>
+              <p className="font-medium mb-3">How can we help?</p>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="flex items-center space-x-2">
+                  <Checkbox id="website" />
+                  <label htmlFor="website" className="text-sm">
+                    Website design
+                  </label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Checkbox id="content" />
+                  <label htmlFor="content" className="text-sm">
+                    Content creation
+                  </label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Checkbox id="ux" />
+                  <label htmlFor="ux" className="text-sm">
+                    UX design
+                  </label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Checkbox id="strategy" />
+                  <label htmlFor="strategy" className="text-sm">
+                    Strategy & consulting
+                  </label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Checkbox id="research" />
+                  <label htmlFor="research" className="text-sm">
+                    User research
+                  </label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Checkbox id="other" />
+                  <label htmlFor="other" className="text-sm">
+                    Other
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <Button className="w-15 bg-gray-200 text-black">Let's get started!</Button>
+          </form>
+        </div>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default Contact;

@@ -5,7 +5,7 @@ import { auth } from "@/app/auth/firebase";
 import { useRouter } from "next/navigation";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { db } from "@/app/auth/firebase";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function LoginForm({ isPopup = false, onClose }: { isPopup?: boolean; onClose?: () => void }) {
   const [email, setEmail] = useState("");
