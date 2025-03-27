@@ -21,11 +21,11 @@ export function TypewriterEffectSmoothDemo() {
     },
     {
       text: "Designcollab.",
-      className: "text-indigo-700 dark:text-[#6810c1]",
+      className: "text-orange-600 dark:text-orange-600",
     },
     {
       text: "", // Added the vertical bar
-      className: "text-indigo-700 dark:text-[#6810c1]", // Same color as Agraphicart
+      className: "text-indigo-700 dark:text-orange-600", // Same color as Agraphicart
     },
   ];
 

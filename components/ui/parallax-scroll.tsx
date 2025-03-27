@@ -35,7 +35,7 @@ export const ParallaxScroll = ({
       ref={containerRef}
     >
       {/* Centered Collection Title */}
-      <h1 className="text-6xl font-extrabold text-center text-[#6810c1] mb-16">
+      <h1 className="text-6xl font-extrabold text-center text-orange-600 mb-16">
         Collection 
       </h1>
 

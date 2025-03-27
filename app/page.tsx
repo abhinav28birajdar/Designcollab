@@ -8,7 +8,7 @@ export default function Home() {
     <main>
       <div> 
         <Hero />
-        <ParallaxScrollDemo />
+        <ParallaxScrollDemo />     
        <Contact />
       </div>
     </main>
