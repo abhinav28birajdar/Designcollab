@@ -44,7 +44,7 @@ export function NavbarWithMegaMenu() {
         <div className="flex h-16 justify-between">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0">
-              <span className="text-3xl flex items-start font-bold text-orange-600">Designcollab</span>
+              <span className="text-3xl flex items-start font-bold text-indigo-600">Designcollab</span>
             </Link>
           </div>
           <div className="hidden lg:flex lg:items-center">

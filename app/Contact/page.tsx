@@ -14,13 +14,13 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <div className="h-1 w-20 bg-primary mx-auto mt-6 rounded-full"></div>
-          <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg">
+          <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg text-2xl text-bold text-indigo-600">
             We'd love to hear from you. Send us a message and we'll respond as soon as possible.
           </p>
         </div>
 
         {/* Main content */}
-        <div className="grid lg:grid-cols-5 bg-orange-600 rounded-2xl gap-10 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-5 bg-indigo-600 rounded-2xl gap-10 max-w-6xl mx-auto">
           {/* Contact info */}
           <div className="lg:col-span-2 space-y-8">
             <Card className="overflow-hidden border-none shadow-lg">
@@ -172,7 +172,7 @@ export default function ContactPage() {
         </div>
 
         {/* FAQ Section */}
-        <div className="mt-24 max-w-4xl mx-auto bg-orange-600 rounded-2xl ">
+        <div className="mt-14 max-w-6xl mx-auto bg-indigo-600 rounded-2xl ">
           <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
 
           <div className="grid md:grid-cols-2 gap-8">
