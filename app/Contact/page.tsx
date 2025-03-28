@@ -1,179 +1,145 @@
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Send, Clock, ArrowRight } from "lucide-react"
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b   from-background to-background/60 py-16 px-4">
+    <div className="min-h-screen bg-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
+          <h1 className="text-5xl font-bold text-white">
             Get in Touch
           </h1>
-          <div className="h-1 w-20 bg-primary mx-auto mt-6 rounded-full"></div>
-          <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg text-2xl text-bold text-indigo-600">
+          <div className="h-1 w-20 bg-indigo-400 mx-auto mt-6 rounded-full"></div>
+          <p className="text-indigo-200 mt-6 max-w-2xl mx-auto text-xl">
             We'd love to hear from you. Send us a message and we'll respond as soon as possible.
           </p>
         </div>
 
-        {/* Main content */}
-        <div className="grid lg:grid-cols-5 bg-indigo-600 rounded-2xl gap-10 max-w-6xl mx-auto">
-          {/* Contact info */}
-          <div className="lg:col-span-2 space-y-8">
-            <Card className="overflow-hidden border-none shadow-lg">
-              <div className="h-2 bg-gradient-to-r from-primary to-primary/60"></div>
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-
-                <div className="space-y-8">
-                  <div className="flex items-start">
-                    <div className="bg-primary/10 p-3 rounded-full mr-4">
-                      <Mail className="h-5 w-5 text-primary" />
+        {/* Main Content */}
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* Contact Information */}
+          <Card className="bg-indigo-600 text-white border-none shadow-2xl">
+            <CardHeader>
+              <CardTitle className="text-2xl text-white">Contact Information</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                {[
+                  { 
+                    icon: <Mail className="h-6 w-6 text-indigo-400" />, 
+                    title: "Email Us", 
+                    content: "info@company.com" 
+                  },
+                  { 
+                    icon: <Phone className="h-6 w-6 text-indigo-400" />, 
+                    title: "Call Us", 
+                    content: "+1 (555) 123-4567" 
+                  },
+                  { 
+                    icon: <MapPin className="h-6 w-6 text-indigo-400" />, 
+                    title: "Visit Us", 
+                    content: "123 Business Avenue, San Francisco, CA 94107" 
+                  },
+                  { 
+                    icon: <Clock className="h-6 w-6 text-indigo-400" />, 
+                    title: "Business Hours", 
+                    content: "Monday - Friday: 9AM - 5PM\nWeekend: Closed" 
+                  }
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="bg-white p-3 rounded-full">
+                      {item.icon}
                     </div>
                     <div>
-                      <h3 className="font-medium text-lg">Email Us</h3>
-                      <a
-                        href="mailto:info@company.com"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        info@company.com
-                      </a>
+                      <h3 className="text-lg font-semibold text-indigo-200">{item.title}</h3>
+                      <p className="text-indigo-100">{item.content}</p>
                     </div>
                   </div>
+                ))}
+              </div>
 
-                  <div className="flex items-start">
-                    <div className="bg-primary/10 p-3 rounded-full mr-4">
-                      <Phone className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-lg">Call Us</h3>
-                      <a href="tel:+15551234567" className="text-muted-foreground hover:text-primary transition-colors">
-                        +1 (555) 123-4567
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="bg-primary/10 p-3 rounded-full mr-4">
-                      <MapPin className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-lg">Visit Us</h3>
-                      <p className="text-muted-foreground">
-                        123 Business Avenue
-                        <br />
-                        San Francisco, CA 94107
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="bg-primary/10 p-3 rounded-full mr-4">
-                      <Clock className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-lg">Business Hours</h3>
-                      <p className="text-muted-foreground">
-                        Monday - Friday: 9AM - 5PM
-                        <br />
-                        Weekend: Closed
-                      </p>
-                    </div>
-                  </div>
+              {/* Social Links */}
+              <div className="mt-8">
+                <h4 className="text-lg font-semibold text-indigo-200 mb-4">Connect With Us</h4>
+                <div className="flex space-x-4">
+                  {["facebook", "twitter", "instagram", "linkedin"].map((social) => (
+                    <a
+                      key={social}
+                      href={`#${social}`}
+                      className="bg-indigo-700 hover:bg-indigo-600 p-3 rounded-full transition-colors"
+                    >
+                      <span className="sr-only">{social}</span>
+                      <div className="w-6 h-6 bg-indigo-500 rounded-full"></div>
+                    </a>
+                  ))}
                 </div>
+              </div>
+            </CardContent>
+          </Card>
 
-                <div className="mt-10">
-                  <h3 className="font-medium text-lg mb-4">Connect With Us</h3>
-                  <div className="flex space-x-4">
-                    {["facebook", "twitter", "instagram", "linkedin"].map((social) => (
-                      <a
-                        key={social}
-                        href={`#${social}`}
-                        className="bg-primary/10 hover:bg-primary/20 p-3 rounded-full transition-colors"
-                      >
-                        <span className="sr-only">{social}</span>
-                        <div className="w-5 h-5 bg-primary/80 rounded-full"></div>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Contact form.... */}
-          <div className="lg:col-span-3 ">
-            <Card className="overflow-hidden border-none shadow-lg">
-              <div className="h-2 bg-gradient-to-r from-primary/60 to-primary"></div>
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
-
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium">
-                        Full Name
-                      </label>
-                      <Input
-                        id="name"
-                        placeholder="John Doe"
-                        className="border-muted-foreground/20 focus:border-primary h-12"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium">
-                        Email Address
-                      </label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="john@example.com"
-                        className="border-muted-foreground/20 focus:border-primary h-12"
-                      />
-                    </div>
-                  </div>
-
+          {/* Contact Form */}
+          <Card className="bg-indigo-800 text-white border-none shadow-2xl">
+            <CardHeader>
+              <CardTitle className="text-2xl text-white">Send a Message</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium">
-                      Subject
-                    </label>
+                    <label htmlFor="name" className="text-sm text-indigo-200">Full Name</label>
                     <Input
-                      id="subject"
-                      placeholder="How can we help you?"
-                      className="border-muted-foreground/20 focus:border-primary h-12"
+                      id="name"
+                      placeholder="John Doe"
+                      className="bg-indigo-700 border-indigo-600 text-white placeholder-indigo-400 focus:border-indigo-400"
                     />
                   </div>
-
                   <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      placeholder="Tell us more about your inquiry..."
-                      className="min-h-[150px] border-muted-foreground/20 focus:border-primary resize-none"
+                    <label htmlFor="email" className="text-sm text-indigo-200">Email Address</label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="john@example.com"
+                      className="bg-indigo-700 border-indigo-600 text-white placeholder-indigo-400 focus:border-indigo-400"
                     />
                   </div>
+                </div>
 
-                  <div className="pt-4">
-                    <Button className="h-12 px-8 rounded-full font-medium">
-                      Send Message
-                      <Send className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-sm text-indigo-200">Subject</label>
+                  <Input
+                    id="subject"
+                    placeholder="How can we help you?"
+                    className="bg-indigo-700 border-indigo-600 text-white placeholder-indigo-400 focus:border-indigo-400"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm text-indigo-200">Message</label>
+                  <Textarea
+                    id="message"
+                    placeholder="Tell us more about your inquiry..."
+                    className="bg-indigo-700 border-indigo-600 text-white placeholder-indigo-400 focus:border-indigo-400 min-h-[150px] resize-none"
+                  />
+                </div>
+
+                <div className="pt-4">
+                  <Button className="bg-indigo-600 hover:bg-indigo-500 text-white">
+                    Send Message
+                    <Send className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
         </div>
 
         {/* FAQ Section */}
-        <div className="mt-14 max-w-6xl mx-auto bg-indigo-600 rounded-2xl ">
-          <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+        <div className="mt-16 max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-white mb-12">Frequently Asked Questions</h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             {[
@@ -183,8 +149,7 @@ export default function ContactPage() {
               },
               {
                 question: "Do you offer support on weekends?",
-                answer:
-                  "Our support team is available Monday through Friday. Weekend support is available for premium customers.",
+                answer: "Our support team is available Monday through Friday. Weekend support is available for premium customers.",
               },
               {
                 question: "Can I schedule a meeting?",
@@ -193,14 +158,20 @@ export default function ContactPage() {
               {
                 question: "Where are you located?",
                 answer: "Our main office is in San Francisco, with satellite offices in New York and London.",
-              },
+              }
             ].map((faq, index) => (
-              <Card key={index} className="border-none shadow-md hover:shadow-lg transition-shadow">
+              <Card 
+                key={index} 
+                className="bg-indigo-800 border-none shadow-lg hover:shadow-xl transition-shadow"
+              >
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-lg mb-2">{faq.question}</h3>
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                  <Button variant="link" className="mt-2 p-0 h-auto text-primary">
-                    Learn more <ArrowRight className="ml-1 h-3 w-3" />
+                  <h3 className="text-lg font-semibold text-indigo-200 mb-2">{faq.question}</h3>
+                  <p className="text-indigo-100 mb-4">{faq.answer}</p>
+                  <Button 
+                    variant="link" 
+                    className="text-indigo-400 hover:text-indigo-300 p-0"
+                  >
+                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
                   </Button>
                 </CardContent>
               </Card>
@@ -208,17 +179,18 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Map */}
-        <div className="mt-24 max-w-6xl mx-auto rounded-xl overflow-hidden shadow-lg">
-          <div className="bg-muted h-[400px] w-full flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="h-12 w-12 text-primary/40 mx-auto mb-4" />
-              <p className="text-muted-foreground">Interactive map would be displayed here</p>
-            </div>
-          </div>
+        {/* Map Placeholder */}
+        <div className="mt-16 max-w-6xl mx-auto">
+          <Card className="bg-indigo-800 border-none shadow-lg">
+            <CardContent className="p-8 flex items-center justify-center">
+              <div className="text-center">
+                <MapPin className="h-12 w-12 text-indigo-400 mx-auto mb-4" />
+                <p className="text-indigo-200">Interactive map would be displayed here</p>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
   )
 }
-
