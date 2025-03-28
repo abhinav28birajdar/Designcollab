@@ -39,7 +39,7 @@ export function NavbarWithMegaMenu() {
   }, []);
 
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-gray-500 shadow-md">
       <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 justify-between">
           <div className="flex items-center">
@@ -62,7 +62,7 @@ export function NavbarWithMegaMenu() {
                     className="rounded-full"
                   />
                 )}
-                <span className="text-gray-700">{user.displayName}</span>
+                <span className="text-white">{user.displayName}</span>
                 <button
                   onClick={logout}
                   className="rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"

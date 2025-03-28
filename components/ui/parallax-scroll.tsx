@@ -31,9 +31,14 @@ export const ParallaxScroll = ({
 
   return (
     <div
-      className={cn("min-h-screen w-full overflow-hidden py-20", className)}
+      className={cn("min-h-screen w-full overflow-hidden bottompy-20 min-h-screen bg-gradient-to-br relative  text-white", className)}
       ref={containerRef}
     >
+       <div className="absolute -top-20 -right-20 w-96 h-96 bg-indigo-600 rounded-full opacity-20 blur-3xl animate-pulse"></div>
+      
+      <div className="absolute top-1/3 -right-1/4 w-[600px] h-[600px]  bg-indigo-600 rounded-full opacity-30 blur-[200px] animate-bounce"></div>
+      <div className="absolute top-1/3 -left-1/4 w-[600px] h-[600px]  bg-indigo-600 rounded-full opacity-50 blur-[200px] animate-bounce"></div>
+     
       {/* Centered Collection Title */}
       <h1 className="text-6xl font-extrabold text-center text-indigo-600 mb-16">
         Collection 

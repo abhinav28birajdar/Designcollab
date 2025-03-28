@@ -2,196 +2,210 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Brush, PenTool, Layout, Type, Layers } from "lucide-react"
+import { Brush, PenTool, Layout, Type, Layers, Palette, Monitor, Figma } from "lucide-react"
 
 export default function ServicesPage() {
+  // Service details for each tab
+  const serviceDetails = {
+    branding: {
+      icon: Layers,
+      iconColor: "indigo",
+      title: "Brand Identity & Strategy",
+      description: "We craft comprehensive brand identities that communicate your values and resonate with your audience.",
+      services: [
+        "Brand Strategy Development",
+        "Visual Identity Systems",
+        "Brand Guidelines Creation",
+        "Market Positioning Analysis"
+      ]
+    },
+    logodesign: {
+      icon: Palette,
+      iconColor: "purple",
+      title: "Logo Design & Visual Marks",
+      description: "Create memorable visual identities that capture the essence of your brand and stand out in the marketplace.",
+      services: [
+        "Concept Development",
+        "Multiple Design Iterations",
+        "Versatile Logo Formats",
+        "Brand Mark Refinement"
+      ]
+    },
+    typography: {
+      icon: Type,
+      iconColor: "emerald",
+      title: "Typography & Verbal Identity",
+      description: "Design powerful typographic systems that enhance your brand's communication and visual language.",
+      services: [
+        "Custom Font Selection",
+        "Typeface Design",
+        "Brand Typography Guidelines",
+        "Responsive Typography Systems"
+      ]
+    },
+    uiux: {
+      icon: Monitor,
+      iconColor: "cyan",
+      title: "UI/UX Design Solutions",
+      description: "Create intuitive, engaging digital experiences that delight users and drive meaningful interactions.",
+      services: [
+        "User Experience Research",
+        "Interface Design",
+        "Interaction Prototyping",
+        "Usability Testing"
+      ]
+    },
+    graphic: {
+      icon: Figma,
+      iconColor: "rose",
+      title: "Graphic Design & Visual Communication",
+      description: "Develop compelling visual narratives that communicate your brand's story across multiple platforms.",
+      services: [
+        "Marketing Collateral Design",
+        "Digital & Print Graphics",
+        "Visual Storytelling",
+        "Brand Illustration"
+      ]
+    }
+  };
+
   return (
-    <div className="flex min-h-screen flex-col bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br  relative overflow-hidden text-white">
+      {/* Glassmorphic Background Elements */}
+      <div className="absolute top-1/3 -right-1/4  w-96 h-96 bg-indigo-600 rounded-full opacity-10 blur-3xl animate-pulse"></div>
+      <div className="absolute -top-10 -left-20 w-96 h-96 bg-indigo-600 rounded-full opacity-20 blur-3xl animate-bounce"></div>
+      <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-indigo-600 rounded-full opacity-20 blur-3xl animate-pulse"></div>
+      <div className="absolute top-1/3 -right-1/4 w-[600px] h-[600px]  bg-indigo-600 rounded-full opacity-30 blur-[100px] animate-bounce"></div>
+      <div className="absolute bottom-1/4 -left-1/4 w-[500px] h-[500px]  bg-indigo-600 rounded-full opacity-20 blur-[100px] animate-bounce delay-500"></div>
+
       {/* Services Overview */}
-      <section className="w-full py-12 md:py-24 lg:py-32">
+      <section className="w-full py-12 md:py-24 lg:py-32 relative">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-indigo-600 px-3 py-1 text-sm text-white">
-                Our Services
+              <div className="inline-block rounded-lg bg-white/10 backdrop-blur-md px-3 py-1 text-sm text-white border border-white/20 shadow-sm">
+                Our Design Services
               </div>
-              <h2 className="text-3xl font-bold tracking-tighter text-gray-900 sm:text-5xl">
-                Comprehensive Design Solutions
+              <h2 className="text-3xl font-bold tracking-tighter text-indigo-600 sm:text-5xl">
+                Comprehensive Design Expertise
               </h2>
-              <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                From brand identity to digital experiences, we offer a full spectrum of design services to elevate your brand.
+              <p className="max-w-[900px] text-white/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Transforming brands through strategic design, creating visual experiences that connect, communicate, and inspire.
               </p>
             </div>
           </div>
 
           <Tabs defaultValue="branding" className="mt-12">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-8 bg-gray-100">
-              <TabsTrigger 
-                value="branding" 
-                className="data-[state=active]:bg-indigo-600 data-[state=active]:text-white"
-              >
-                Branding
-              </TabsTrigger>
-              <TabsTrigger 
-                value="logo" 
-                className="data-[state=active]:bg-indigo-600 data-[state=active]:text-white"
-              >
-                Logo Design
-              </TabsTrigger>
-              <TabsTrigger 
-                value="typography" 
-                className="data-[state=active]:bg-indigo-600 data-[state=active]:text-white"
-              >
-                Typography
-              </TabsTrigger>
-              <TabsTrigger 
-                value="uiux" 
-                className="data-[state=active]:bg-indigo-600 data-[state=active]:text-white"
-              >
-                UI/UX Design
-              </TabsTrigger>
-              <TabsTrigger 
-                value="graphic" 
-                className="data-[state=active]:bg-indigo-600 data-[state=active]:text-white"
-              >
-                Graphic Design
-              </TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-8 bg-white/5 backdrop-blur-md border border-white/20 rounded-xl shadow-sm">
+              {Object.keys(serviceDetails).map((service) => (
+                <TabsTrigger 
+                  key={service} 
+                  value={service} 
+                  className="data-[state=active]:bg-white/20 data-[state=active]:text-white text-white/70 hover:bg-white/10 transition-all capitalize"
+                >
+                  {service.replace('uiux', 'UI/UX')}
+                </TabsTrigger>
+              ))}
             </TabsList>
 
-            {/* Branding Section */}
-            <TabsContent value="branding">
-              <div className="grid md:grid-cols-2 gap-8">
-                <Card className="shadow-lg hover:shadow-xl transition-shadow">
-                  <CardHeader className="flex flex-row items-center space-x-4">
-                    <div className="bg-indigo-100 p-3 rounded-full">
-                      <Layers className="h-6 w-6 text-indigo-600" />
-                    </div>
-                    <CardTitle className="text-2xl text-gray-900">Brand Identity & Strategy</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 mb-4">
-                      We craft comprehensive brand identities that communicate your values and resonate with your audience.
-                    </p>
-                    <ul className="space-y-2 text-gray-700">
-                      <li className="flex items-center">
-                        <div className="mr-2 h-2 w-2 rounded-full bg-indigo-600"></div>
-                        <span>Brand Strategy & Positioning</span>
-                      </li>
-                      <li className="flex items-center">
-                        <div className="mr-2 h-2 w-2 rounded-full bg-indigo-600"></div>
-                        <span>Visual Identity Systems</span>
-                      </li>
-                      <li className="flex items-center">
-                        <div className="mr-2 h-2 w-2 rounded-full bg-indigo-600"></div>
-                        <span>Brand Guidelines</span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                  <CardFooter>
-                    <Button variant="outline" className="w-full border-indigo-600 text-indigo-600 hover:bg-indigo-50">
-                      Learn More
-                    </Button>
-                  </CardFooter>
-                </Card>
+            {Object.entries(serviceDetails).map(([key, service]) => (
+              <TabsContent key={key} value={key}>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <Card className="bg-white/5 backdrop-blur-md border border-white/20 shadow-xl hover:shadow-2xl hover:border-white/40 transition-all group">
+                    <CardHeader className="flex flex-row items-center space-x-4">
+                      <div className={`bg-${service.iconColor}-100/20 p-3 rounded-full backdrop-blur-sm group-hover:scale-110 transition-transform`}>
+                        <service.icon className={`h-6 w-6 text-${service.iconColor}-400 group-hover:text-${service.iconColor}-300`} />
+                      </div>
+                      <CardTitle className="text-2xl text-white group-hover:text-white/90 transition-colors">{service.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-white/80 mb-4 group-hover:text-white transition-colors">
+                        {service.description}
+                      </p>
+                      <ul className="space-y-2 text-white/90">
+                        {service.services.map((item) => (
+                          <li key={item} className="flex items-center group">
+                            <div className={`mr-2 h-2 w-2 rounded-full bg-${service.iconColor}-400 group-hover:bg-${service.iconColor}-300`}></div>
+                            <span className="group-hover:text-white transition-colors">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                    <CardFooter>
+                      <Button 
+                        variant="outline" 
+                        className={`w-full bg-${service.iconColor}-600/10 backdrop-blur-sm border-white/20 text-white hover:bg-${service.iconColor}-600/20 hover:border-white/40 transition-all`}
+                      >
+                        Explore {service.title}
+                      </Button>
+                    </CardFooter>
+                  </Card>
 
-                <Card className="shadow-lg hover:shadow-xl transition-shadow">
-                  <CardHeader className="flex flex-row items-center space-x-4">
-                    <div className="bg-purple-100 p-3 rounded-full">
-                      <Brush className="h-6 w-6 text-purple-600" />
+                  <Card className="bg-white/5 backdrop-blur-md border border-white/20 shadow-xl hover:shadow-2xl hover:border-white/40 transition-all group">
+                    <div className="relative h-full">
+                      <Image
+                        src="/placeholder.svg?height=600&width=800"
+                        alt={service.title}
+                        fill
+                        className="object-cover opacity-10 absolute inset-0 group-hover:opacity-20 transition-opacity"
+                      />
+                      <CardContent className="relative z-10 p-6">
+                        <h3 className={`text-2xl font-bold mb-4 text-white group-hover:text-${service.iconColor}-300 transition-colors`}>
+                          Why Choose Our {service.title.split(' ')[0]} Services?
+                        </h3>
+                        <div className="space-y-4 text-white">
+                          <div className="flex items-start space-x-3 group">
+                            <div className={`p-2 bg-${service.iconColor}-100/20 rounded-full group-hover:scale-110 transition-transform`}>
+                              <service.icon className={`h-5 w-5 text-${service.iconColor}-400 group-hover:text-${service.iconColor}-300`} />
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-lg text-white/90 group-hover:text-white transition-colors">Strategic Approach</h4>
+                              <p className="text-white/70 group-hover:text-white/90 transition-colors">
+                                Data-driven design solutions tailored to your unique business goals.
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex items-start space-x-3 group">
+                            <div className={`p-2 bg-${service.iconColor}-100/20 rounded-full group-hover:scale-110 transition-transform`}>
+                              <Figma className={`h-5 w-5 text-${service.iconColor}-400 group-hover:text-${service.iconColor}-300`} />
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-lg text-white/90 group-hover:text-white transition-colors">Expert Craftsmanship</h4>
+                              <p className="text-white/70 group-hover:text-white/90 transition-colors">
+                                Precision and creativity combined to deliver exceptional design outcomes.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
                     </div>
-                    <CardTitle className="text-2xl text-gray-900">Brand Implementation</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 mb-4">
-                      We implement your brand across all touchpoints, ensuring consistency and maximum impact.
-                    </p>
-                    <ul className="space-y-2 text-gray-700">
-                      <li className="flex items-center">
-                        <div className="mr-2 h-2 w-2 rounded-full bg-purple-600"></div>
-                        <span>Multi-Channel Branding</span>
-                      </li>
-                      <li className="flex items-center">
-                        <div className="mr-2 h-2 w-2 rounded-full bg-purple-600"></div>
-                        <span>Digital & Print Assets</span>
-                      </li>
-                      <li className="flex items-center">
-                        <div className="mr-2 h-2 w-2 rounded-full bg-purple-600"></div>
-                        <span>Brand Consistency Audit</span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                  <CardFooter>
-                    <Button variant="outline" className="w-full border-purple-600 text-purple-600 hover:bg-purple-50">
-                      Explore Services
-                    </Button>
-                  </CardFooter>
-                </Card>
-              </div>
-            </TabsContent>
-
-            {/* Similar modifications for other tabs... */}
+                  </Card>
+                </div>
+              </TabsContent>
+            ))}
           </Tabs>
         </div>
       </section>
 
-      {/* Portfolio Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
-        <div className="container px-4 md:px-6">
-          <div className="text-center mb-12">
-            <div className="inline-block rounded-lg bg-indigo-600 px-3 py-1 text-sm text-white mb-4">
-              Our Work
-            </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Projects</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Explore our portfolio of innovative design solutions across various industries.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { title: "Brand Identity", subtitle: "Tech Startup Rebrand", color: "indigo" },
-              { title: "UI/UX Design", subtitle: "E-commerce App", color: "purple" },
-              { title: "Packaging Design", subtitle: "Sustainable Product Line", color: "teal" }
-            ].map((project, index) => (
-              <Card key={index} className="group overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                <div className="relative h-56 w-full overflow-hidden">
-                  <Image
-                    src="/placeholder.svg?height=600&width=800"
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                </div>
-                <CardContent className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className={`text-xl font-bold text-${project.color}-200`}>{project.title}</h3>
-                  <p className="text-white/80">{project.subtitle}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-indigo-600 text-white">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-white/5 backdrop-blur-md border-t border-white/20 relative">
         <div className="container px-4 md:px-6 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Elevate Your Brand?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Let's create design solutions that transform your brand and drive meaningful growth.
+          <h2 className="text-4xl font-bold mb-6 text-white">Ready to Transform Your Brand?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-white/80">
+            Let's collaborate to create design solutions that elevate your brand, engage your audience, and drive meaningful growth.
           </p>
           <div className="flex justify-center space-x-4">
             <Button 
               variant="secondary" 
-              className="bg-white text-indigo-600 hover:bg-gray-100"
+              className="bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 border border-white/20 shadow-md"
             >
               View Our Process
             </Button>
             <Button 
               variant="outline" 
-              className="border-white text-white hover:bg-white/10"
+              className="bg-white/5 backdrop-blur-sm border-white/20 text-white hover:bg-white/10"
             >
-              Our Approach
+              Book a Consultation
             </Button>
           </div>
         </div>

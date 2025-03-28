@@ -11,7 +11,7 @@ const NavList: React.FC<NavListProps> = ({ items }) => {
   return (
     <ul className="flex flex-col lg:flex-row lg:items-center lg:gap-6">
       <li>
-        <Link href="/" className="block py-2 px-4 font-medium text-gray-700 hover:text-gray-900">
+        <Link href="/" className="block py-2 px-4 font-medium text-white hover:text-gray-900">
           Home
         </Link>
       </li>
@@ -19,17 +19,17 @@ const NavList: React.FC<NavListProps> = ({ items }) => {
         <NavListMenu items={items} />
       </li>
       <li>
-        <Link href="/Design" className="block py-2 px-4 font-medium text-gray-700 hover:text-gray-900">
+        <Link href="/Design" className="block py-2 px-4 font-medium text-white hover:text-gray-900">
           Design
         </Link>
       </li>
       <li>
-        <Link href="/chat" className="block py-2 px-4 font-medium text-gray-700 hover:text-gray-900">
+        <Link href="/chat" className="block py-2 px-4 font-medium text-white hover:text-gray-900">
           Chat
         </Link>
       </li>
       <li>
-        <Link href="/Contact" className="block py-2 px-4 font-medium text-gray-700 hover:text-gray-900">
+        <Link href="/Contact" className="block py-2 px-4 font-medium text-white hover:text-gray-900">
           Contact Us
         </Link>
       </li>

@@ -18,7 +18,7 @@ const NavListMenu: React.FC<NavListMenuProps> = ({ items }) => {
     <div className="relative">
       <button
         onClick={toggleMenu}
-        className="flex items-center gap-2 py-2 px-4 font-medium text-gray-700 hover:text-gray-900"
+        className="flex items-center gap-2 py-2 px-4 font-medium text-white hover:text-gray-900"
       >
         Products
         <svg
